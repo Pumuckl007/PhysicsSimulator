@@ -1,9 +1,23 @@
 canvas{
+  position:absolute;
   width:100%;
   left:0px;
+  height:100%;
   right:0px;
+  top:0;
+  bottom:0;
 }
 body{
   margin:0px;
   overflow:hidden;
+}
+
+.info{
+  right:0;
+  top:0;
+  width:40%;
+  height: 20%;
+  position:absolute;
+  color:white;
+  z-index: 1;
 }
