@@ -16,7 +16,7 @@ class World {
       let ambLight = new THREE.AmbientLight(0x404040);
       this.scene.add(ambLight);
       document.body.appendChild(this.renderer.domElement);
-      this.renderer.setClearColor( 0xffffff );
+      this.renderer.setClearColor( 0x444444 );
   }
 
   addGrid(){
@@ -276,13 +276,18 @@ class ForceRenderer{
 
 var world = new World();
 world.addGrid();
-for(let i = 0; i < 25; i++){
-  for(let k = 0; k < 25; k++){
+for(let i = 0; i < 5; i++){
+  for(let k = 0; k < 5; k++){
     let bob = new Bob(5);
     let x = Math.random()*6.5+0.5;
-    let pendulum = new SimplePendulum(x, (k-10)*5, x, (i-10)*5, bob, Math.random()*85);
+    let pendulum = new SimplePendulum(x, (k-2)*10-40, x, (i-2)*10-40, bob, Math.random()*85);
     world.addObject(pendulum);
   }
+}
+for(let k = 0; k < 5; k++){
+  let bob = new Bob(Math.random()*10+4);
+  let pendulum = new SimplePendulum(7, 0, 7, (k-2)*5, bob, Math.random()*65+20);
+  world.addObject(pendulum);
 }
 var step = function(){
   requestAnimationFrame(step);
